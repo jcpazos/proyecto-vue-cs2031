@@ -1,23 +1,26 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <!--<HelloWorld msg="Hola Mundo!"/>-->
+  <img class="imagen" alt="Vue logo" src="./assets/logo.png">
+  <HelloWorld msg="Hola Mundo!"/>
   <div class="login">
     <LoginComponent></LoginComponent>
-    <LogosComponent myWidth="30" myHeight="30"></LogosComponent>
+    <!--<LogosComponent myWidth="30" myHeight="30"></LogosComponent>-->
+    <TablaUsuarios></TablaUsuarios>
   </div>
 </template>
 
 <script>
-//import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from './components/HelloWorld.vue'
 import LoginComponent from './components/Login.vue'
-import LogosComponent from './components/Logos.vue'
+import TablaUsuarios from './components/TablaUsuarios.vue'
+//import LogosComponent from './components/Logos.vue'
 
 export default {
   name: 'App',
   components: {
-    //HelloWorld,
+    HelloWorld,
     LoginComponent,
-    LogosComponent
+    TablaUsuarios,
+    //LogosComponent
   }
 }
 </script>
@@ -26,6 +29,10 @@ export default {
 .login {
   flex: auto;
   
+}
+
+.imagen {
+  margin-left: 40%;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

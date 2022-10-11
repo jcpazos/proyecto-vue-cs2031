@@ -19,9 +19,8 @@
   <!-- Add "scoped" attribute to limit CSS to this component only -->
   <style scoped>
     .logos {
-        margin-left: 40%;
-        width:20%;
-        justify-content: center;
+        margin-left: 0%;
+        width:20px;
         background: red;
     }
   </style>

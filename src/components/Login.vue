@@ -1,12 +1,12 @@
 <template>
-    <div class="login">
+    <div class="login content-center">
       <label for="username">Username: </label>
-      <input v-bind:value="username" v-on:input="onUsernameInput" name="username" id="username">
+      <input v-bind:value="username" v-on:input="onUsernameInput" name="username" id="username" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500  w-20">
       <br><br>
       <label for="password">Password: </label>
-      <input v-bind:value="password" v-on:input="onPasswordInput" name="password" id="password">
+      <input v-bind:value="password" v-on:input="onPasswordInput" name="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500  w-20">
       <br><br>
-      <button v-on:click="onLogin">Login!</button>
+      <button v-on:click="onLogin" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Login!</button>
       <br><br>
       <div v-if="success && loginAttempt" id="success">Success!</div>
       <div v-if="!success && loginAttempt" id="fail">Incorrect username or password</div>

@@ -23,14 +23,14 @@
         </ul>-->
     </div>
     <label for="newUsername">New Username:</label>
-    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500  w-20">
+    <input v-bind:value="newUsername" v-on:input="onNewUsernameInput" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500  w-20">
     <br><br>
-    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add User!</button>
+    <button v-on:click="onNewUsernameClick" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add User!</button>
     <br><br>
     <label for="deleteUsername">Delete username:</label>
-    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500  w-20">
+    <input v-bind:value="deleteUsername" v-on:input="onDeleteUsernameInput" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500  w-20">
     <br><br>
-    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Delete User!</button>
+    <button v-on:click="onDeleteUsernameClick" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Delete User!</button>
   </template>
   
   <script>
@@ -53,9 +53,25 @@
                     "username": "mtorres",
                     "email": "mtorres@utec.edu.pe"
                 }
-            ]
+            ],
+            'newUsername': '',
+            'deleteUsername': ''
         }
-    }
+    },
+    methods: {
+            onNewUsernameInput(e) {
+                this.newUsername = e.target.value;
+            },
+            onDeleteUsernameInput(e) {
+                this.deleteUsername = e.target.value;
+            },
+            onNewUsernameClick() {
+                this.usuarios.push({ "username": this.newUsername, "email": this.newUsername+"@utec.edu.pe" });
+            },
+            onDeleteUsernameClick() {
+                this.usuarios = this.usuarios.filter((usuario) => usuario.username !== this.deleteUsername);
+            }
+        }
   }
   </script>
   

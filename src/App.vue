@@ -1,10 +1,10 @@
 <template>
   <img class="imagen" alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Hola Mundo!"/>
+  <HelloWorld v-if="!loggedIn" msg="Bienvenidos a UTEC CS 2031! Haz Login!"/>
   <div class="login">
-    <LoginComponent></LoginComponent>
+    <LoginComponent v-if="!loggedIn" v-on:user-login="onUserLogin"></LoginComponent>
     <!--<LogosComponent myWidth="30" myHeight="30"></LogosComponent>-->
-    <TablaUsuarios></TablaUsuarios>
+    <TablaUsuarios @user-logout="onUserLogout" v-if="loggedIn"></TablaUsuarios>
   </div>
 </template>
 
@@ -21,6 +21,24 @@ export default {
     LoginComponent,
     TablaUsuarios,
     //LogosComponent
+  },
+  data() {
+    return {
+      loggedIn: false
+    }
+  },
+  created() {
+    if (sessionStorage.getItem('user')) {
+      this.loggedIn = true;
+    }
+  },
+  methods: {
+    onUserLogin() {
+      this.loggedIn = true;
+    },
+    onUserLogout() {
+      this.loggedIn = false;
+    }
   }
 }
 </script>

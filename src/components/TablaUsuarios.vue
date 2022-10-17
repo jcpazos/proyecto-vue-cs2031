@@ -1,4 +1,7 @@
   <template>
+    <div>Welcome {{ username }}</div>
+    <button class="btn btn-primary" @click="onLogout">Logout!</button>
+    <br><br>
     <div class="table table-dark miTabla">
         <table>
             <tr>
@@ -50,15 +53,24 @@
             'newPassword': '',
             'newEmail': '',
             'deleteUsername': '',
-            userExists: false
+            userExists: false,
+            'username': ''
         }
     },
     created() {
         const url = "http://localhost:5000/usersjson";
 
         fetch(url).then((res) => res.json()).then((data) => this.usuarios = data);
+
+        if (sessionStorage.getItem('user')) {
+            this.username = sessionStorage.getItem('user');
+        }
     },
     methods: {
+            onLogout() {
+                this.$emit('user-logout');
+                sessionStorage.removeItem('user');
+            },
             onNewUsernameInput(e) {
                 this.userExists = false;
                 this.newUsername = e.target.value;

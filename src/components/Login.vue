@@ -56,6 +56,10 @@
                 // this.success = data.success ? true : false;
 
                 this.success = data.success;
+                if (this.success) {
+                    sessionStorage.setItem('user', this.username);
+                    this.$emit('user-login');
+                }
             });
         }
     }

@@ -45,20 +45,7 @@
     },
     data () {
         return {
-            usuarios: [
-                /*{
-                    "username": "jpazos",
-                    "email": "jpazos@utec.edu.pe"
-                }, 
-                {
-                    "username": "lhidalgo",
-                    "email": "lhidalgo@utec.edu.pe"
-                },
-                { 
-                    "username": "mtorres",
-                    "email": "mtorres@utec.edu.pe"
-                }*/
-            ],
+            usuarios: [],
             'newUsername': '',
             'newPassword': '',
             'newEmail': '',

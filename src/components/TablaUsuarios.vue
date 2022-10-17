@@ -46,7 +46,7 @@
     data () {
         return {
             usuarios: [
-                {
+                /*{
                     "username": "jpazos",
                     "email": "jpazos@utec.edu.pe"
                 }, 
@@ -57,7 +57,7 @@
                 { 
                     "username": "mtorres",
                     "email": "mtorres@utec.edu.pe"
-                }
+                }*/
             ],
             'newUsername': '',
             'newPassword': '',
@@ -65,6 +65,11 @@
             'deleteUsername': '',
             userExists: false
         }
+    },
+    created() {
+        const url = "http://localhost:5000/usersjson";
+
+        fetch(url).then((res) => res.json()).then((data) => this.usuarios = data);
     },
     methods: {
             onNewUsernameInput(e) {
